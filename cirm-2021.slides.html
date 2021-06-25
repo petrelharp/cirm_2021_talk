@@ -152,6 +152,12 @@
 </div>
 </div>
 </section>
+<section id="section" class="slide level2">
+<h2></h2>
+<figure>
+<img data-src="figs/lineages-hitting-time-divergence.png" alt="IBD for tortoises" /><figcaption aria-hidden="true">IBD for tortoises</figcaption>
+</figure>
+</section>
 <section id="tracing-back-lineages" class="slide level2">
 <h2>Tracing back lineages</h2>
 <p>The <em>lineage</em> of a bit of genome at location <span class="math inline">\(x\)</span> today is <span class="math display">\[\begin{aligned}
@@ -160,7 +166,8 @@
 <div class="fragment">
 <p>Properties:</p>
 <ol type="1">
-<li><p>stationary distribution is long-term fitness</p></li>
+<li><p><span class="math inline">\(L\)</span> describes <em>gene flow</em></p></li>
+<li><p>the stationary distribution of <span class="math inline">\(L\)</span> is long-term fitness</p></li>
 <li><p><span class="math inline">\(\sigma_e\)</span> is determined by <span class="math inline">\(L_t\)</span></p></li>
 </ol>
 </div>
@@ -190,7 +197,7 @@
 </div>
 </div>
 </section>
-<section id="section" class="slide level2">
+<section id="section-1" class="slide level2">
 <h2></h2>
 <p>Suppose: <span class="math display">\[\begin{aligned}
     N(x,t)
@@ -316,7 +323,7 @@
 </div>
 </div>
 </section>
-<section id="section-1" class="slide level2">
+<section id="section-2" class="slide level2">
 <h2></h2>
 <div class="columns">
 <div class="column">
@@ -327,11 +334,15 @@
 </div>
 </div>
 </section>
-<section id="what-about-temporal-correlations" class="slide level2">
-<h2>What about temporal correlations?</h2>
+<section id="case-2-temporal-correlations" class="slide level2">
+<h2>Case 2: temporal correlations?</h2>
 <div class="columns">
 <div class="column">
-<p>With a reversible-in-time Markovian environment, at stationarity, with the <em>same</em> distribution in space,</p>
+<p>Now suppose</p>
+<ul>
+<li><span class="math inline">\(N(t, \cdot)\)</span> is Markov in <span class="math inline">\(t\)</span>, and</li>
+<li><span class="math inline">\(N(t, x)\)</span> is at stationarity, reversible with respect to the same spatial distribution as before.</li>
+</ul>
 </div><div class="column" style="width:50%;">
 <figure>
 <img data-src="figs/run_BURNIN_1000_NUMGENS_15000_W_300_GAMMA_B_0.2_GAMMA_M_0.1_seed_1302.lineages.png" alt="a simulation" /><figcaption aria-hidden="true">a simulation</figcaption>
@@ -339,12 +350,16 @@
 </div>
 </div>
 </section>
-<section id="what-about-temporal-correlations-1" class="slide level2">
-<h2>What about temporal correlations?</h2>
+<section id="case-2-temporal-correlations-1" class="slide level2">
+<h2>Case 2: temporal correlations?</h2>
 <div class="columns">
 <div class="column">
-<p>With a reversible-in-time Markovian environment, at stationarity, with the <em>same</em> distribution in space,</p>
-<p>changing temporal correlations can also increase <em>or</em> decrease speed.</p>
+<p>Now suppose</p>
+<ul>
+<li><span class="math inline">\(N(t, \cdot)\)</span> is Markov in <span class="math inline">\(t\)</span>, and</li>
+<li><span class="math inline">\(N(t, x)\)</span> is at stationarity, reversible with respect to the same spatial distribution as before.</li>
+</ul>
+<p>Numerically: changing temporal correlations can also increase <em>or</em> decrease speed.</p>
 </div><div class="column" style="width:50%;">
 <p><img data-src="figs/speeds_vs_gamma_m.png" /></p>
 </div>
@@ -360,14 +375,14 @@
 <p>Birth, establishment, and establishment rates depend on local population densities (like Bolker-Pacala):</p>
 <ul>
 <li><span class="math inline">\(N\)</span>: scaling factor for density</li>
-<li><span class="math inline">\(\eta_t\)</span>: point measure with <span class="math inline">\(1/N\)</span> for each individual</li>
+<li><span class="math inline">\(\eta_t\)</span>: point measure with mass 1 for each individual</li>
 <li><span class="math inline">\(\epsilon\)</span>: interaction distance</li>
-<li><span class="math inline">\(\bar \eta_t = p_\epsilon * \eta_t / N\)</span>: rescaled, smoothed population density</li>
+<li><span class="math inline">\(\bar \eta_t = \eta_t / N\)</span>: rescaled, population density</li>
 <li><span class="math inline">\(p_\epsilon\)</span>: the heat kernel</li>
-<li><span class="math inline">\(\gamma(x, \bar \eta_t(x))\)</span>: per capita birth rate at <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(\gamma(x, \bar \eta_t)\)</span>: per capita birth rate at <span class="math inline">\(x\)</span></li>
 <li><span class="math inline">\(q(x, y)\)</span>: probability density a juvenile disperses to <span class="math inline">\(y\)</span></li>
-<li><span class="math inline">\(r(y, \bar \eta_t(y))\)</span>: juvenile establishment probability at <span class="math inline">\(y\)</span></li>
-<li><span class="math inline">\(\mu(x, \bar \eta_t(x))\)</span>: death rate at <span class="math inline">\(x\)</span></li>
+<li><span class="math inline">\(r(y, \bar \eta_t)\)</span>: juvenile establishment probability at <span class="math inline">\(y\)</span></li>
+<li><span class="math inline">\(\mu(x, \bar \eta_t)\)</span>: death rate at <span class="math inline">\(x\)</span></li>
 </ul>
 </section>
 <section id="for-instance" class="slide level2">
@@ -428,11 +443,7 @@
 <section>
 <section id="limits" class="title-slide slide level1">
 <h1>Limits</h1>
-
-</section>
-<section class="slide level2">
-
-<p>figure of various scales</p>
+<p><img data-src="figs/scales_diagram.png" /></p>
 </section>
 <section class="slide level2">
 
@@ -777,12 +788,39 @@ r(x, \Xi)
 <div class="columns">
 <div class="column">
 <p>The lineage has stationary distribution <span class="math display">\[\begin{aligned}
-    \pi(x) \propto e^x \left(1 - e^{x/2}\right) \qquad \text{for } x &lt; 0 .
-\end{aligned}\]</span></p>
+    \pi(x) \propto e^x \left(1 - e^{x/2}\right)
+\end{aligned}\]</span> for <span class="math inline">\(x &lt; 0\)</span>.</p>
 </div><div class="column" style="width:50%;">
 <p><img data-src="figs/pme_dists.png" /></p>
 </div>
 </div>
+</section></section>
+<section>
+<section id="wrap-up" class="title-slide slide level1">
+<h1>Wrap-up</h1>
+
+</section>
+<section id="section-3" class="slide level2">
+<h2></h2>
+<ol type="1">
+<li><p>There’s still a lot we don’t know about genetics + geography</p></li>
+<li><p>… especially, genetic drift!</p></li>
+<li><p>But also, gene flow, which is related, and seems more tractable.</p></li>
+</ol>
+<figure>
+<img data-src="figs/locator_spatial_tree_sequence.png" alt="trees in space" /><figcaption aria-hidden="true">trees in space</figcaption>
+</figure>
+<div class="caption">
+<p><em>image by CJ Battey</em></p>
+</div>
+</section>
+<section id="open-questions" class="slide level2">
+<h2>Open questions</h2>
+<ol type="1">
+<li><p>When is <span class="math inline">\(\sigma_e &gt; \sigma\)</span>?</p></li>
+<li><p>How badly are lineages non-Markov?</p></li>
+<li></li>
+</ol>
 </section></section>
     </div>
   </div>
