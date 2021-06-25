@@ -98,6 +98,20 @@
   <p class="date">5th Workshop Probability and Evolution<br/><em>slides:</em> <a href="https://github.com/petrelharp/cirm_2021_talk">github:petrelharp/cirm_2021_talk</a></p>
 </section>
 
+<section class="slide level2">
+
+<div class="columns">
+<div class="column">
+<p><strong>Joint work with:</strong></p>
+<p>Alison Etheridge</p>
+<p>Tom Kurtz</p>
+<p>Ian Letter</p>
+<p>Terence Tsui</p>
+</div><div class="column" style="width:50%;">
+<p><img data-src="figs/coauthors.png" /></p>
+</div>
+</div>
+</section>
 <section>
 <section id="the-problem-of-geography" class="title-slide slide level1">
 <h1>The “problem” of geography</h1>
@@ -123,16 +137,19 @@
     &amp;= \text{(genetic distance between individuals $i$ and $j$)} \\
     &amp;= \frac{\text{number of nucleotide differences}}{\text{length of the genome}} .
 \end{aligned}\]</span></p>
-<div class="fragment">
+</section>
+<section class="slide level2">
+
 <p>The <em>Wright-Malecót formula</em> says that in 2D: <span class="math display">\[\begin{aligned}
    \mathbb{E}[d(i, j)]
    &amp;=
-   \frac{1}{\mathcal{N} + \log(\sigma_e / (\kappa \sqrt{2\mu}))}
+   1 - \frac{1}{\mathcal{N} + \log(\sigma_e / (\kappa \sqrt{2\mu}))}
     K_0\left( \frac{\sqrt{2\mu}|x_i-x_j|}{\sigma_e} \right) .
 \end{aligned}\]</span> (see e.g., Barton, Depaulis &amp; Etheridge (2002); Smith &amp; Weissman 2020)</p>
-</div>
 <div class="fragment">
-<p><strong>But:</strong> what’s <span class="math inline">\(\sigma_e\)</span>?</p>
+<div class="floatright">
+<p><img data-src="figs/finger_right.png" class="finger" style="width:30.0%" /> <strong>But:</strong> what’s <span class="math inline">\(\sigma_e\)</span>?</p>
+</div>
 </div>
 </section>
 <section id="tracing-back-lineages" class="slide level2">
@@ -194,11 +211,9 @@
 <h1>Big/small worlds</h1>
 
 </section>
-<section id="much-much-simpler" class="slide level2">
-<h2>Much, much simpler:</h2>
-<p>Assume that:</p>
-<ol start="0" type="1">
-<li><p>We’re in one dimension.</p></li>
+<section id="much-much-simpler-in-d1-assume" class="slide level2">
+<h2>Much, much simpler: in <span class="math inline">\(d=1\)</span>, assume</h2>
+<ol type="1">
 <li><p><span class="math inline">\(L_t\)</span> is Markov given <span class="math inline">\(N\)</span> (generally requires <span class="math inline">\(N\)</span> to be large).</p></li>
 <li><p><span class="math inline">\(N(x,t)\)</span> is reversible, Markov, and stationary.</p></li>
 <li><p><span class="math inline">\(N(x,t) \in \{G, B\}\)</span>, with <span class="math inline">\(G \gg B\)</span>.</p></li>
@@ -417,6 +432,10 @@
 </section>
 <section class="slide level2">
 
+<p>figure of various scales</p>
+</section>
+<section class="slide level2">
+
 <p>Rescale <em>time</em> by <span class="math inline">\(\theta\)</span>. As <span class="math inline">\(\theta \to \infty\)</span>:</p>
 <div class="fragment">
 <p>to see <em>lineages</em> moving, we need variance of dispersal distance of <span class="math inline">\(1/\theta\)</span>, and <span class="math display">\[
@@ -554,6 +573,8 @@ r(x, \Xi)
 </section>
 <section class="slide level2">
 
+<div class="columns">
+<div class="column" style="width:60%;">
 <ul>
 <li><p>death: <span class="math inline">\(\mu = 0.3\)</span> per generation</p></li>
 <li><p>establishment: <span class="math inline">\(r = 0.7\)</span></p></li>
@@ -562,8 +583,14 @@ r(x, \Xi)
 <li><p>reproduction: with <span class="math inline">\(K=2\)</span>, <span class="math inline">\(\lambda=3\)</span>, <span class="math display">\[ \gamma = \frac{\lambda}{1 + \text{(local density)}/K} \]</span></p></li>
 <li><p>non-spatial equilibrium density: <span class="math display">\[ K \left( \frac{\lambda}{1 - r} - 1 \right) .\]</span></p></li>
 </ul>
-<div class="fragment">
-<p>Try it out yourself: SLiM code at <a href="https://github.com/petrelharp/cirm_2021_talk/gilia_clumping_sim.slim">github.com/petrelharp/cirm_2021_talk</a></p>
+</div><div class="column" style="width:40%;">
+<figure>
+<img data-src="figs/slim_screenshot.png" alt="screenshot of SLiM GUI" /><figcaption aria-hidden="true">screenshot of SLiM GUI</figcaption>
+</figure>
+<div class="caption">
+<p><em>SLiM code at <a href="https://github.com/petrelharp/cirm_2021_talk/gilia_clumping_sim.slim">github.com/petrelharp/cirm_2021_talk</a></em></p>
+</div>
+</div>
 </div>
 </section>
 <section class="slide level2">
@@ -571,6 +598,7 @@ r(x, \Xi)
 <ul>
 <li>dispersal distance <span class="math inline">\(\sigma = 1/\sqrt{\theta} = 3\)</span></li>
 <li>interaction distance <span class="math inline">\(\epsilon = 1\)</span></li>
+<li>mean # offspring <span class="math inline">\(\gamma \propto (1 + \text{(density)} / K)^{-1}\)</span></li>
 </ul>
 <div class="fragment">
 <figure>
@@ -585,11 +613,9 @@ r(x, \Xi)
 <li>interaction distance <span class="math inline">\(\epsilon = 1\)</span></li>
 <li>mean # offspring <span class="math inline">\(\gamma \propto (1 + \text{(density)} / K)^{-1}\)</span></li>
 </ul>
-<div class="fragment">
 <figure>
 <img data-src="figs/gilia_low_sigma.png" alt="not patchy" /><figcaption aria-hidden="true">not patchy</figcaption>
 </figure>
-</div>
 </section>
 <section class="slide level2">
 
@@ -740,7 +766,7 @@ r(x, \Xi)
 <p>…so in the stationary frame, the lineage’s generator is <span class="math display">\[\begin{aligned}
     \phi 
     &amp;\mapsto 
-    w(x) \left( \phi_{xx} + 4 (log w)_x \phi_x \right) + \phi_x \\
+    w(x) \left( \phi_{xx} + 4 (\log w)_x \phi_x \right) + \phi_x \\
     &amp;=
     \left(1 - e^{x/2}\right) \phi_{xx}
             + \left(1 - 2 e^{x/2}\right) \phi_x \qquad \text{on } x &lt; 0.
