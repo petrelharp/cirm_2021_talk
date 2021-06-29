@@ -58,7 +58,7 @@ k <- 10
     plot(xy$x, xy$y, type='n',
          xlim=c(-1, 1) * W/2, ylim=c(-1, 1) * H/2,
          asp=1, xaxt='n', xlab='', yaxt='n', ylab='')
-    draw_circle(xy[k,], epsilon, col=adjustcolor("red", 0.5), lwd=2, radius_label=expression(epsilon))
+    draw_circle(xy[k,], epsilon, col=adjustcolor("red", 0.5), lwd=2, radius_label=expression(sqrt(epsilon)))
     points(xy[k,1], xy[k,2], cex=2, pch=20)
     in_circle <- setdiff(which((xy$x - xy[k,1])^2 + (xy$y - xy[k,2])^2 < epsilon^2), k)
     arrows(x0=xy$x[in_circle], y0=xy$y[in_circle],
