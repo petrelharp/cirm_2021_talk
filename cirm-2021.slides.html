@@ -556,15 +556,15 @@ i.e., iff
 </div>
 </section></section>
 <section>
-<section id="diffusion-limits-heuristics" class="title-slide slide level1">
-<h1>Diffusion limits: heuristics</h1>
+<section id="diffusion-limits" class="title-slide slide level1">
+<h1>Diffusion limits</h1>
 <p><img data-src="figs/scales_diagram.png" /></p>
 </section>
 <section class="slide level2">
 
 <p>As <span class="math inline">\(N \to \infty\)</span>, also rescale <em>time</em> by <span class="math inline">\(\theta\)</span>, and let e.g., <span class="math display">\[  r_\theta(x, \eta) \to r(x, \eta) \qquad \text{as } \theta \to \infty . \]</span></p>
 <p>As <span class="math inline">\(\theta \to \infty\)</span>, to see <em>lineages</em> moving, we take <span class="math inline">\(\sigma = 1/\sqrt{\theta}\)</span>, so that <span class="math display">\[
-    \theta \int (g(y) - g(x)) q_\theta(x, dy) \to \Delta g(x) ,
+    \theta \int (g(y) - g(x)) q_\theta(x, dy) \to \frac{1}{2} \Delta g(x) ,
 \]</span></p>
 <div class="fragment">
 <p>and population density changes on a time scale of <span class="math inline">\(\theta\)</span> generations: <span class="math display">\[
@@ -578,7 +578,7 @@ i.e., iff
 </section>
 <section class="slide level2">
 
-<p>Suppose also the <em>density measure</em> converges:</p>
+<p>Suppose also the <em>population measure</em> converges:</p>
 <p><span class="math display">\[
     \eta \to \Xi \qquad \text{as} \qquad \theta, N \to \infty
 \]</span></p>
@@ -642,8 +642,8 @@ i.e., iff
 <section id="pde-limit" class="slide level2">
 <h2>PDE limit?</h2>
 <p>Recall that e.g., <span class="math display">\[\begin{aligned}
-r(x, \Xi)
-    = r(p_\epsilon * \Xi(x)) .
+r(x, \eta)
+    = r(p_\epsilon * \eta(x)) .
 \end{aligned}\]</span></p>
 <div class="fragment">
 <p>… can we also take <span class="math inline">\(\epsilon \to 0\)</span>, getting <span class="math display">\[\begin{aligned}
@@ -858,7 +858,7 @@ r(x, \Xi)
     n(x,t) = w(x - ct),
 \end{aligned}\]</span> and a determinstic, local limit holds:</p>
 <div class="fragment">
-<p>… then <span class="math inline">\(L - ct\)</span> has generator <span class="math display">\[\begin{aligned}
+<p>… then <span class="math inline">\(L + ct\)</span> has generator <span class="math display">\[\begin{aligned}
     \phi &amp;\mapsto r(x) \gamma(x) \left\{
         2 \nabla \log(\gamma w)(x) \cdot \nabla \phi(x)
         + \Delta \phi(x)
