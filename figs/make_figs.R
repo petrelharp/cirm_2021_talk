@@ -104,3 +104,12 @@ par(mar=c(5,3,1,1)+.1)
     legend("topleft", lty=1, lwd=2, col=c("black", "red"),
            legend=c("lineage", "population"))
 dev.off()
+
+pdf(file='pme_dists.pdf', width=5, height=7)
+par(mar=c(5,3,1,1)+.1)
+    plot(xvals, f(xvals), type='l',
+         ylab='', xlab='position', lwd=2)
+    lines(xvals, w(xvals), col='red', lwd=2)
+    legend("topleft", lty=1, lwd=2, col=c("black", "red"),
+           legend=c("lineage", "population"))
+dev.off()
